@@ -1,4 +1,4 @@
-import { WeaponShotType } from "../../../../../../types/combat/WeaponItemConfig.js";
+import { WeaponShotType } from "../../../../../../../types/combat/WeaponItemConfig.js";
 import { calculateWeaponAttack } from "./calculations/calculateWeaponAttack.js";
 import { calculateWeaponBlock } from "./calculations/calculateWeaponBlock.js";
 import { calculateWeaponDamage } from "./calculations/calculateWeaponDamage.js";
