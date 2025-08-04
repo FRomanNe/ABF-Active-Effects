@@ -10,14 +10,16 @@
   "esmodules":[
     "module.mjs"
   ],
-  "documentTypes":
-  {
-   "Actor":
-   {
-	"ActiveCharacter": {}
-   }
-  },
-  "relationships": { "requires": [] },
+"manifest": "https://github.com/FRomanNe/ABF-Active-Effects/blob/f445745b94a9e1264a9da0573b35e52241271eb5/module.json",
+  "relationships": {   
+	"systems": [{
+    "id": "animabf",
+    "type": "system",
+    "manifest": ""https://raw.githubusercontent.com/AnimaBeyondDevelop/AnimaBeyondFoundry/main/src/system.json",
+    "compatibility": {
+      "verified": "1.19.5"
+    }
+  }]},
   "version": "0.1",
   "minimumCoreVersion": "0.8.8"
 }

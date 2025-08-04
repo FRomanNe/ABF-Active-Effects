@@ -1,7 +1,7 @@
 import { mutateWeaponsData } from "./base/items/weapon/mutateWeaponsData.js";
-import { mutatePrimaryModifiers } from "./base/actor/mutatePrimaryModifiers.js";
+//import { mutatePrimaryModifiers } from "./base/actor/mutatePrimaryModifiers.js";
 import { mutateTotalArmor } from "./base/actor/mutateTotalArmor.js";
-import { mutateAmmoData } from "./base/items/ammo/mutateAmmoData.js";
+//import { mutateAmmoData } from "./base/items/ammo/mutateAmmoData.js";
 import { mutateArmorsData } from "./base/items/armor/mutateArmorsData.js";
 import { mutatePhysicalModifier } from "./base/actor/modifiers/mutatePhysicalModifier.js";
 import { mutateAllActionsModifier } from "./base/actor/modifiers/mutateAllActionsModifier.js";
@@ -14,7 +14,6 @@ import { mutateDomineData } from "./base/actor/domine/mutateDomineData.js";
 import { mutateInitiative } from "./base/actor/mutateInitiative.js";
 import { mutateRegenerationType } from "./base/actor/general/mutateRegenerationType.js";
 const DERIVED_DATA_FUNCTIONS = [
-  mutatePrimaryModifiers,
   mutateRegenerationType,
   mutateAllActionsModifier,
   mutateArmorsData,
