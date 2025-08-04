@@ -1,0 +1,23 @@
+{
+  "name": "anima-active-effects",
+  "title": "Anima Active Effects",
+  "description": "Adds Active Effects for the Anima Beyond Fantasy system",
+  "authors": [
+    {
+      "name": "Felipe Roman"
+    }
+  ],
+  "esmodules":[
+    "module.mjs"
+  ],
+  "documentTypes":
+  {
+   "Actor":
+   {
+	"ActiveCharacter": {}
+   }
+  },
+  "relationships": { "requires": [] },
+  "version": "0.1",
+  "minimumCoreVersion": "0.8.8"
+}
