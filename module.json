@@ -10,12 +10,12 @@
   "esmodules":[
     "module.mjs"
   ],
-"manifest": "https://github.com/FRomanNe/ABF-Active-Effects/blob/f445745b94a9e1264a9da0573b35e52241271eb5/module.json",
+"manifest": "https://raw.githubusercontent.com/FRomanNe/ABF-Active-Effects/main/module.json",
   "relationships": {   
 	"systems": [{
     "id": "animabf",
     "type": "system",
-    "manifest": ""https://raw.githubusercontent.com/AnimaBeyondDevelop/AnimaBeyondFoundry/main/src/system.json",
+    "manifest": "https://raw.githubusercontent.com/AnimaBeyondDevelop/AnimaBeyondFoundry/main/src/system.json",
     "compatibility": {
       "verified": "1.19.5"
     }
