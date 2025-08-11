@@ -1,6 +1,6 @@
-import { WeaponSizeProportion } from "../../../../../../../types/combat/WeaponItemConfig.js";
+import { WeaponSizeProportion } from "../../../../../../../animabfConnector.js";
 const calculateWeaponIntegrity = (weapon) => {
-  let integrity = weapon.system.integrity.base.value + weapon.system.integrity.mod.value + weapon.system.quality.value * 2;
+  let integrity = weapon.system.integrity.base.value + (weapon.system.integrity.mod?.value ?? 0) + weapon.system.quality.value * 2;
   if (weapon.system.sizeProportion.value === WeaponSizeProportion.ENORMOUS) {
     integrity += 6;
   }

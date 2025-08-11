@@ -1,4 +1,4 @@
-import { WeaponEquippedHandType } from "../../../../../../../types/combat/WeaponItemConfig.js";
+import { WeaponEquippedHandType } from "../../../../../../../animabfConnector.js";
 import { getCurrentEquippedHand } from "./getCurrentEquippedHand.js";
 import { calculateAttributeModifier } from "../../../util/calculateAttributeModifier.js";
 const calculateWeaponStrengthModifier = (weapon, data) => {

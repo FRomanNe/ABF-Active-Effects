@@ -16,6 +16,7 @@ import { mutatePsychicData } from "./calculations/actor/psychic/mutatePsychicDat
 import { mutateDomineData } from "./calculations/actor/domine/mutateDomineData.js";
 import { mutateInitiative } from "./calculations/actor/mutateInitiative.js";
 import { mutateRegenerationType } from "./calculations/actor/general/mutateRegenerationType.js";
+import {mutateExtraDamageModifier} from "./calculations/actor/modifiers/mutateExtraDamageModifier.js";
 const DERIVED_DATA_FUNCTIONS = [
   mutatePrimaryModifiers,
   mutateRegenerationType,
@@ -33,7 +34,8 @@ const DERIVED_DATA_FUNCTIONS = [
   mutateInitiative,
   mutateMysticData,
   mutatePsychicData,
-  mutateDomineData
+  mutateDomineData,
+  mutateExtraDamageModifier
 ];
 const prepareActiveActor = async (actor) => {
   await prepareItems(actor);

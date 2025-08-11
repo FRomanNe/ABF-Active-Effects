@@ -16,7 +16,7 @@ const calculateArmorsMovementTypeModifier = (data) => {
 const mutateMovementType = (data) => {
   const armorsMovementRestrictions = calculateArmorsMovementTypeModifier(data);
   const { movementType } = data.characteristics.secondaries;
-  movementType.final.value = movementType.mod.value + movementType.bonus.value + data.characteristics.primaries.agility.value + Math.min(0, Math.ceil(data.general.modifiers.allActions.final.value / 20)) + armorsMovementRestrictions;
+  movementType.final.value = movementType.mod.value + (movementType.bonus?.value ?? 0) + data.characteristics.primaries.agility.value + Math.min(0, Math.ceil(data.general.modifiers.allActions.final.value / 20)) + armorsMovementRestrictions;
   movementType.final.value = Math.max(0, movementType.final.value);
   data.characteristics.secondaries.movement.maximum.value = calculateMovementInMetersFromMovementType(movementType.final.value);
   data.characteristics.secondaries.movement.running.value = calculateMovementInMetersFromMovementType(Math.max(0, movementType.final.value - 2));

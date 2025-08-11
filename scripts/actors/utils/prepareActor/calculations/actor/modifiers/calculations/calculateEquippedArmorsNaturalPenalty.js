@@ -1,4 +1,4 @@
-import { ArmorType, ArmorLocation } from "../../../../../../../types/combat/ArmorItemConfig.js";
+import { ArmorType, ArmorLocation } from "../../../../../../../animabfConnector.js";
 const calculateEquippedArmorsNaturalPenalty = (data) => {
   const combat = data.combat;
   const equippedArmorsNonNatural = combat.armors.filter(

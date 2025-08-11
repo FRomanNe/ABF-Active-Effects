@@ -1,4 +1,4 @@
-import { ArmorLocation } from "../../../../../../../types/combat/ArmorItemConfig.js";
+import { ArmorLocation } from "../../../../../../../animabfConnector.js";
 const calculateArmorsPerceptionPenalty = (data) => {
   const combat = data.combat;
   const equippedArmors = combat.armors.filter(

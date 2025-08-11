@@ -1,4 +1,4 @@
-import { WeaponShotType } from "../../../../../../../types/combat/WeaponItemConfig.js";
+import { WeaponShotType } from "../../../../../../animabfConnector.js";
 import { calculateWeaponAttack } from "./calculations/calculateWeaponAttack.js";
 import { calculateWeaponBlock } from "./calculations/calculateWeaponBlock.js";
 import { calculateWeaponDamage } from "./calculations/calculateWeaponDamage.js";
@@ -31,7 +31,7 @@ const mutateWeaponsData = (data) => {
     weapon.system.damage = {
       base: weapon.system.damage.base,
       mod: weapon.system.damage.mod,
-      final: { value: calculateWeaponDamage(weapon, data) }
+      final: {value: calculateWeaponDamage(weapon,data)}
     };
     weapon.system.integrity = {
       base: weapon.system.integrity.base,

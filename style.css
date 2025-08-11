@@ -1,0 +1,89 @@
+.technique-properties{
+    display: ruby;
+    z-index: 2;
+    position: relative;
+}
+.tallbox {
+    min-height: 10rem;
+}
+.advantage-header{
+    padding-bottom: 2px;
+    padding-top: 2px;
+    width: 95%;
+}
+.advantage-header .name .input-container{
+    width: 100%;
+}
+.contents{
+    display: contents;
+}
+.effect-row{
+    width: 100%;
+    padding-right: 0.2rem;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    padding-left: 1rem;
+    background-color: #6e2917;
+    border-radius: 1rem;
+}
+.technique-builder .input{
+    border-radius: 10px;
+    background: #e7e5da;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    color: black;
+    text-align: center;
+    width: 37rem;
+}
+.technique-builder .effect-list{
+    min-width: 11rem;
+}
+.technique-builder .tier-title{
+    min-width: 5.5rem;
+    text-align: center;
+}
+.technique-builder .tier-list{
+    min-width: 5.2rem;
+    text-align: center;
+}
+.technique-builder .other-col{
+    width: 1.1rem;
+}
+.technique-builder .input .not-active{
+    border-radius: 5px;
+    color: white;
+    background: #6e6c17;
+}
+.technique-builder .input .active{
+    border-radius: 5px;
+    color: white;
+    background: #6e1717;
+}
+.technique-builder .tier-row{
+    border-radius: 5px;
+    text-align: center;
+    background: white;
+}
+.effect-row .flex-start{
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+}
+.effect-row .flex-end{
+        display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.effect-row .flex-center{
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.settings-icon{
+    height: 40px;
+    border-radius: 50%;
+}

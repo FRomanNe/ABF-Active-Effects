@@ -10,7 +10,7 @@ const mutateDomineData = async (data) => {
     "power"
   ];
   for (const accum of KI_ACCUMULATIONS) {
-    domine.kiAccumulation[accum].mod.value = 0;
+    domine.kiAccumulation[accum].mod = {value: 0};
   }
 };
 export {

@@ -1,39 +1,48 @@
-import { AdvantageItemConfig } from "../../../../types/general/AdvantageItemConfig.js";
-import { ArsMagnusItemConfig } from "../../../../types/domine/ArsMagnusItemConfig.js";
-import { CombatSpecialSkillItemConfig } from "../../../../types/combat/CombatSpecialSkillItemConfig.js";
-import { CombatTableItemConfig } from "../../../../types/combat/CombatTableItemConfig.js";
-import { ContactItemConfig } from "../../../../types/general/ContactItemConfig.js";
-import { CreatureItemConfig } from "../../../../types/domine/CreatureItemConfig.js";
-import { DisadvantageItemConfig } from "../../../../types/general/DisadvantageItemConfig.js";
-import { SpellItemConfig } from "../../../../types/mystic/SpellItemConfig.js";
-import { ElanItemConfig } from "../../../../types/general/ElanItemConfig.js";
-import { InnatePsychicPowerItemConfig } from "../../../../types/psychic/InnatePsychicPowerItemConfig.js";
-import { KiSkillItemConfig } from "../../../../types/domine/KiSkillItemConfig.js";
-import { LanguageItemConfig } from "../../../../types/general/LanguageItemConfig.js";
-import { LevelItemConfig } from "../../../../types/general/LevelItemConfig.js";
-import { MartialArtItemConfig } from "../../../../types/domine/MartialArtItemConfig.js";
-import { MentalPatternItemConfig } from "../../../../types/psychic/MentalPatternItemConfig.js";
-import { MetamagicItemConfig } from "../../../../types/mystic/MetamagicItemConfig.js";
-import { NemesisSkillItemConfig } from "../../../../types/domine/NemesisSkillItemConfig.js";
-import { NoteItemConfig } from "../../../../types/general/NoteItemConfig.js";
-import { PsychicDisciplineItemConfig } from "../../../../types/psychic/PsychicDisciplineItemConfig.js";
-import { PsychicPowerItemConfig } from "../../../../types/psychic/PsychicPowerItemConfig.js";
-import { SecondarySpecialSkillItemConfig } from "../../../../types/secondaries/SecondarySpecialSkillItemConfig.js";
-import { SelectedSpellItemConfig } from "../../../../types/mystic/SelectedSpellItemConfig.js";
-import { ActViaItemConfig } from "../../../../types/mystic/ActViaItemConfig.js";
-import { InnateMagicViaItemConfig } from "../../../../types/mystic/InnateMagicViaItemConfig.js";
-import { PreparedSpellItemConfig } from "../../../../types/mystic/PreparedSpellItemConfig.js";
-import { SpecialSkillItemConfig } from "../../../../types/domine/SpecialSkillItemConfig.js";
-import { SpellMaintenanceItemConfig } from "../../../../types/mystic/SpellMaintenanceItemConfig.js";
-import { SummonItemConfig } from "../../../../types/mystic/SummonItemConfig.js";
-import { TechniqueItemConfig } from "../../../../types/domine/TechniqueItemConfig.js";
-import { TitleItemConfig } from "../../../../types/general/TitleItemConfig.js";
-import { WeaponItemConfig } from "../../../../types/combat/WeaponItemConfig.js";
-import { AmmoItemConfig } from "../../../../types/combat/AmmoItemConfig.js";
-import { ElanPowerItemConfig } from "../../../../types/general/ElanPowerItemConfig.js";
-import { ArmorItemConfig } from "../../../../types/combat/ArmorItemConfig.js";
-import { SupernaturalShieldItemConfig } from "../../../../types/combat/SupernaturalShieldItemConfig.js";
-import { InventoryItemItemConfig } from "../../../../types/general/InventoryItemItemConfig.js";
+//import { AdvantageItemConfig } from "../../../../../../systems/animabf/module/types/general/AdvantageItemConfig.js";
+import { ArsMagnusItemConfig } from "../../../../../../systems/animabf/module/types/domine/ArsMagnusItemConfig.js";
+import { CombatSpecialSkillItemConfig } from "../../../../../../systems/animabf/module/types/combat/CombatSpecialSkillItemConfig.js";
+import { CombatTableItemConfig } from "../../../../../../systems/animabf/module/types/combat/CombatTableItemConfig.js";
+import { ContactItemConfig } from "../../../../../../systems/animabf/module/types/general/ContactItemConfig.js";
+import { CreatureItemConfig } from "../../../../../../systems/animabf/module/types/domine/CreatureItemConfig.js";
+import { DisadvantageItemConfig } from "../../../../../../systems/animabf/module/types/general/DisadvantageItemConfig.js";
+import { SpellItemConfig } from "../../../../../../systems/animabf/module/types/mystic/SpellItemConfig.js";
+import { ElanItemConfig } from "../../../../../../systems/animabf/module/types/general/ElanItemConfig.js";
+import { InnatePsychicPowerItemConfig } from "../../../../../../systems/animabf/module/types/psychic/InnatePsychicPowerItemConfig.js";
+//import { KiSkillItemConfig } from "../../../../../../systems/animabf/module/types/domine/KiSkillItemConfig.js";
+import { LanguageItemConfig } from "../../../../../../systems/animabf/module/types/general/LanguageItemConfig.js";
+import { LevelItemConfig } from "../../../../../../systems/animabf/module/types/general/LevelItemConfig.js";
+import { MartialArtItemConfig } from "../../../../../../systems/animabf/module/types/domine/MartialArtItemConfig.js";
+import { MentalPatternItemConfig } from "../../../../../../systems/animabf/module/types/psychic/MentalPatternItemConfig.js";
+import { MetamagicItemConfig } from "../../../../../../systems/animabf/module/types/mystic/MetamagicItemConfig.js";
+import { NemesisSkillItemConfig } from "../../../../../../systems/animabf/module/types/domine/NemesisSkillItemConfig.js";
+import { NoteItemConfig } from "../../../../../../systems/animabf/module/types/general/NoteItemConfig.js";
+import { PsychicDisciplineItemConfig } from "../../../../../../systems/animabf/module/types/psychic/PsychicDisciplineItemConfig.js";
+import { PsychicPowerItemConfig } from "../../../../../../systems/animabf/module/types/psychic/PsychicPowerItemConfig.js";
+import { SecondarySpecialSkillItemConfig } from "../../../../../../systems/animabf/module/types/secondaries/SecondarySpecialSkillItemConfig.js";
+import { SelectedSpellItemConfig } from "../../../../../../systems/animabf/module/types/mystic/SelectedSpellItemConfig.js";
+import { ActViaItemConfig } from "../../../../../../systems/animabf/module/types/mystic/ActViaItemConfig.js";
+import { InnateMagicViaItemConfig } from "../../../../../../systems/animabf/module/types/mystic/InnateMagicViaItemConfig.js";
+import { PreparedSpellItemConfig } from "../../../../../../systems/animabf/module/types/mystic/PreparedSpellItemConfig.js";
+import { SpecialSkillItemConfig } from "../../../../../../systems/animabf/module/types/domine/SpecialSkillItemConfig.js";
+import { SpellMaintenanceItemConfig } from "../../../../../../systems/animabf/module/types/mystic/SpellMaintenanceItemConfig.js";
+import { SummonItemConfig } from "../../../../../../systems/animabf/module/types/mystic/SummonItemConfig.js";
+//import { TechniqueItemConfig } from "../../../../../../systems/animabf/module/types/domine/TechniqueItemConfig.js";
+import { TitleItemConfig } from "../../../../../../systems/animabf/module/types/general/TitleItemConfig.js";
+//import { WeaponItemConfig } from "../../../../../../systems/animabf/module/types/combat/WeaponItemConfig.js";
+//import { AmmoItemConfig } from "../../../../../../systems/animabf/module/types/combat/AmmoItemConfig.js";
+import { ElanPowerItemConfig } from "../../../../../../systems/animabf/module/types/general/ElanPowerItemConfig.js";
+//import { ArmorItemConfig } from "../../../../../../systems/animabf/module/types/combat/ArmorItemConfig.js";
+import { SupernaturalShieldItemConfig } from "../../../../../../systems/animabf/module/types/combat/SupernaturalShieldItemConfig.js";
+import { InventoryItemItemConfig } from "../../../../../../systems/animabf/module/types/general/InventoryItemItemConfig.js";
+
+import {WeaponItemConfig} from "../../../Types/WeaponItemConfig.js";
+import {ArmorItemConfig} from "../../../Types/ArmorItemConfig.js";
+import {AmmoItemConfig} from "../../../Types/AmmoItemConfig.js";
+import {TechniqueItemConfig} from "../../../Types/TechniqueItemConfig.js";
+import {ActiveEffectItemConfig} from "../../../Types/ActiveEffectItemConfig.js";
+import {AdvantageItemConfig} from "../../../Types/AdvantageItemConfig.js";
+import {KiSkillItemConfig} from "../../../Types/KiSkillConfig.js";
+
 const INTERNAL_ITEM_CONFIGURATIONS = {
   [ArsMagnusItemConfig.type]: ArsMagnusItemConfig,
   [CombatSpecialSkillItemConfig.type]: CombatSpecialSkillItemConfig,
@@ -72,7 +81,8 @@ const ITEM_CONFIGURATIONS = {
   [PsychicDisciplineItemConfig.type]: PsychicDisciplineItemConfig,
   [PsychicPowerItemConfig.type]: PsychicPowerItemConfig,
   [TechniqueItemConfig.type]: TechniqueItemConfig,
-  [WeaponItemConfig.type]: WeaponItemConfig
+  [WeaponItemConfig.type]: WeaponItemConfig,
+  //[ActiveEffectItemConfig.type]: ActiveEffectItemConfig
 };
 const ALL_ITEM_CONFIGURATIONS = {
   ...ITEM_CONFIGURATIONS,
@@ -81,5 +91,5 @@ const ALL_ITEM_CONFIGURATIONS = {
 export {
   ALL_ITEM_CONFIGURATIONS,
   INTERNAL_ITEM_CONFIGURATIONS,
-  ITEM_CONFIGURATIONS
+  ITEM_CONFIGURATIONS,
 };

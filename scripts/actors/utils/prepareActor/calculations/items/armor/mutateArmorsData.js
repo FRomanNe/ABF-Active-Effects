@@ -11,44 +11,44 @@ const mutateArmorsData = (data) => {
     armor.system.cut = {
       base: armor.system.cut.base,
       mod: armor.system.cut.mod,
-      final: { value: calculateArmorTA(armor, armor.system.cut.base.value) +  armor.system.cut.mod.value }
+      final: { value: calculateArmorTA(armor, armor.system.cut.base.value) +  (armor.system.cut.mod?.value ?? 0) }
     };
     armor.system.cold = {
       base: armor.system.cold.base,
       mod: armor.system.cold.mod,
-      final: { value: calculateArmorTA(armor, armor.system.cold.base.value) + armor.system.cold.mod.value }
+      final: { value: calculateArmorTA(armor, armor.system.cold.base.value) + (armor.system.cold.mod?.value ?? 0) }
     };
     armor.system.heat = {
       base: armor.system.heat.base,
       mod: armor.system.heat.mod,
-      final: { value: calculateArmorTA(armor, armor.system.heat.base.value) + armor.system.heat.mod.value }
+      final: { value: calculateArmorTA(armor, armor.system.heat.base.value) + (armor.system.heat.mod?.value ?? 0) }
     };
     armor.system.electricity = {
       base: armor.system.electricity.base,
       mod: armor.system.electricity.mod,
-      final: { value: electricity(armor, armor.system.electricity.base.value) + armor.system.electricity.mod.value }
+      final: { value: calculateArmorTA(armor, armor.system.electricity.base.value) + (armor.system.electricity.mod?.value ?? 0) }
     };
     armor.system.impact = {
       base: armor.system.impact.base,
       mod: armor.system.impact.mod,
-      final: { value: calculateArmorTA(armor, armor.system.impact.base.value) + armor.system.impact.mod.value }
+      final: { value: calculateArmorTA(armor, armor.system.impact.base.value) + (armor.system.impact.mod?.value ?? 0) }
     };
     armor.system.thrust = {
       base: armor.system.thrust.base,
       mod: armor.system.thrust.mod,
-      final: { value: calculateArmorTA(armor, armor.system.thrust.base.value) + armor.system.thrust.mod.value }
+      final: { value: calculateArmorTA(armor, armor.system.thrust.base.value) + (armor.system.thrust.mod?.value ?? 0) }
     };
     if (armor.system.isEnchanted.value) {
       armor.system.energy = {
         base: armor.system.energy.base,
         mod: armor.system.energy.mod,
-        final: { value: calculateArmorTA(armor, armor.system.energy.base.value) + armor.system.energy.mod.value }
+        final: { value: calculateArmorTA(armor, armor.system.energy.base.value) + (armor.system.energy.mod?.value ?? 0) }
       };
     } else {
       armor.system.energy = {
         base: armor.system.energy.base,
         mod: armor.system.energy.mod,
-        final: {value: armor.system.energy.base.value + armor.system.energy.mod.value}
+        final: {value: armor.system.energy.base.value + (armor.system.energy.mod?.value ?? 0)}
       };
     }
     armor.system.integrity = {

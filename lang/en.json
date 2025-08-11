@@ -1,0 +1,44 @@
+{
+    "ABFae.UI.Details": "Details",
+    "ABFae":{
+        "UI":{
+            "Details": "Details",
+            "Effect": "Effect",
+            "Activate": "Activate",
+            "Value": "Value",
+            "Ki": "Ki",
+            "MK": "MK",
+            "Maint":"Maint",
+            "Sme": "MiS",
+            "Sma": "GrS",
+            "Lv":"Lv",
+            "Titles":{
+                "TechniqueBuilder":"Create new Technique"
+            }
+        },
+        "Domine":{
+            "Attack": "Attack Ability (Single)",
+            "AttackFull": "Attack Ability (Multiple)",
+            "PredeterminedAttack": "Predetermined Attack",
+            "Counterattack": "Counterattack Ability",
+            "Aim": "Combat Maneuvers and Aiming (Single)",
+            "AimFull": "Combat Maneuvers and Aiming (Multiple)",
+            "Indirect": "Indirect Attack",
+            "Camouflage": "Camouflage Attack",
+            "Block": "Block Ability (Single)",
+            "BlockFull": "Block Ability (Multiple)",
+            "BlockLimited": "Limited Block Ability",
+            "Dodge": "Dodge Ability (Single)",
+            "DodgeFull": "Dodge Ability (Multiple)",
+            "Damage": "Damage Augmentation (Single)",
+            "DamageFull": "Damage Augmentation (Multiple)",
+            "DamageMult": "Damage Multiplier (Single)",
+            "DamageMultFull": "Damage Multiplier (Multiple)",
+            "DamageSub": "Predetermined Damage (Single)",
+            "DamageSubFull": "Predetermined Damage (Multiple)",
+            "Initiative": "Initiative Augmentation",
+            "Breakage": "Breakage Augmentation",
+            "Fortitude": "Fortitude Augmentation"
+        }
+    }
+}

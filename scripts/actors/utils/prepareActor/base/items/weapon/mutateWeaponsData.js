@@ -1,37 +1,37 @@
-import { WeaponShotType } from "../../../WeaponItemConfig.js";
+import { WeaponShotType } from "../../../../../../animabfConnector.js";
 const mutateWeaponsData = (data) => {
   const combat = data.combat;
   combat.weapons = combat.weapons.map((weapon) => {
     weapon.system.attack = {
       base: weapon.system.attack.base,
-      mod: weapon.system.attack.mod,
+      mod: {value:0},
       special: weapon.system.attack.special,
       final: weapon.system.attack.final
     };
     weapon.system.block = {
       base: weapon.system.block.base,
-      mod: weapon.system.block.mod,
+      mod: {value:0},
       special: weapon.system.block.special,
       final: weapon.system.block.final
     };
     weapon.system.initiative = {
       base: weapon.system.initiative.base,
-      mod: weapon.system.initiative.mod,
+      mod: {value:0},
       final: weapon.system.initiative.final
     };
     weapon.system.damage = {
       base: weapon.system.damage.base,
-      mod: weapon.system.damage.mod,
+      mod:  {value: 0}, 
       final: weapon.system.damage.final
     };
     weapon.system.integrity = {
       base: weapon.system.integrity.base,
-      mod: weapon.system.integrity.mod,
+      mod: {value:0},
       final: weapon.system.integrity.final
     };
     weapon.system.breaking = {
       base: weapon.system.breaking.base,
-      mod: weapon.system.breaking.mod,
+      mod: {value:0},
       final: weapon.system.breaking.final
     };
     weapon.system.presence = {

@@ -5,7 +5,7 @@ const mutateRegenerationType = (data) => {
   const baseRegen = calculateRegenerationTypeFromConstitution(
     data.characteristics.primaries.constitution.value
   );
-  regenerationType.final.value = Math.max(0, regenerationType.mod.value + regenerationType.bonus.value + baseRegen);
+  regenerationType.final.value = Math.max(0, regenerationType.mod.value + (regenerationType.bonus?.value ?? 0) + baseRegen);
   let [resting, normal, recovery] = calculateRegenerationFromRegenerationType(
     regenerationType.final.value
   );

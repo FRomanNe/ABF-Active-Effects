@@ -1,4 +1,4 @@
-import { WeaponSize } from "../../../../../types/combat/WeaponItemConfig.js";
+import { WeaponSize } from "../../../../../animabfConnector.js";
 const mutateInitiative = (data) => {
   const combat = data.combat;
   const { general } = data;
@@ -40,7 +40,7 @@ const mutateInitiative = (data) => {
       }
     }
   }
-  initiative.final.value += initiative.mod.value;
+  initiative.final.value += (initiative.mod?.value ?? 0);
 };
 export {
   mutateInitiative

@@ -1,0 +1,17 @@
+{{#> "systems/animabf/templates/items/base/base-sheet.hbs"}}
+  {{#> "systems/animabf/templates/common/ui/group.hbs" class="item-dialog"}}
+        {{#> "systems/animabf/templates/common/ui/group-header.hbs"}}
+            <div class='advantage-header'>
+                {{>
+                "systems/animabf/templates/common/ui/horizontal-titled-input.hbs"
+                class="name"
+                hideTitle=true
+                inputType="text"
+                inputName="name"
+                inputValue=item.name
+                }}
+            </div>
+        {{/"systems/animabf/templates/common/ui/group-header.hbs"}}       
+        {{> "modules/anima-active-effects/templates/effects/effects-tab.hbs" active="active"}}
+  {{/"systems/animabf/templates/common/ui/group.hbs"}}
+{{/"systems/animabf/templates/items/base/base-sheet.hbs"}}

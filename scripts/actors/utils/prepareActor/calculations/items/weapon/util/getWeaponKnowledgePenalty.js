@@ -1,4 +1,4 @@
-import { WeaponKnowledgeType } from "../../../../../../../types/combat/WeaponItemConfig.js";
+import { WeaponKnowledgeType } from "../../../../../../../animabfConnector.js";
 const getWeaponKnowledgePenalty = (weapon) => {
   switch (weapon.system.knowledgeType.value) {
     case WeaponKnowledgeType.SIMILAR:

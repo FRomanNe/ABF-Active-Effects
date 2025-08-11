@@ -5,7 +5,7 @@ const mutateSecondariesData = (data) => {
     if (secondaryKey === "secondarySpecialSkills") continue;
     for (const key of Object.keys(secondaries[secondaryKey])) {
       const secondary = data.secondaries[secondaryKey][key];
-      secondary.mod.value = 0;
+      secondary.mod = {value: 0};
     }
   }
 };

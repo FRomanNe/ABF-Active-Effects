@@ -1,0 +1,86 @@
+<div class="common-group technique-builder">
+    <div class='group-header'>
+        <div class='technique-header'>
+            <input name="name" type="text" class="input" 
+            value="{{name}}"/>
+        </div>
+    </div>
+    <div class="group-body " id="technique-builder-menu">
+        <div class="flexcol">
+            <div class="group-header flexrow">
+                <div class="effect-list">{{localize "ABFae.UI.Effect"}}</div>
+                <div class="tier-title">{{localize "ABFae.UI.Value"}}</div>
+                <div class="other-col">{{localize "ABFae.UI.Ki"}}</div>
+                <div class="other-col">{{localize "ABFae.UI.MK"}}</div>
+                <div class="other-col">{{localize "ABFae.UI.Maint"}}</div>
+                <div class="other-col">{{localize "ABFae.UI.Sme"}}</div>
+                <div class="other-col">{{localize "ABFae.UI.Sma"}}</div>
+                <div class="other-col">{{localize "ABFae.UI.Lv"}}</div>
+                <img class='add-button'
+                    data-action='add'
+                    src='/systems/animabf/assets/icons/game-icons.net/ffffff/sbed/add.svg'
+                    />
+            </div>
+            <div class="flexrow input">
+                <select id="effect-0" data-item-id="0" class="effect-list effects">
+                    {{#each effects as |effect|}}
+                        <option value="{{effect.id}}" {{#if (is "eq" ../primary.effect effect.id)}}selected{{/if}} >{{localize effect.name}}</option>
+                    {{/each}}
+                </select>
+                <select id="value-0" data-item-id="0" class="tiers tier-list">
+                    {{#with (lookup effects primary.effect) as |effect|}}
+                        {{#each effect.tiers as |tier|}}
+                            <option value={{@index}} {{#if (is "eq" @index ../../primary.tier)}}selected{{/if}}
+                            >{{effect.valueStart}}{{tier.value}}</option>
+                        {{/each}}
+                    {{/with}}
+                </select>
+                {{#with (lookup effects primary.effect) as |effect|}}
+                    {{#with (lookup effect.tiers ../primary.tier) as |tier|}}
+                        <div data-item-id="0" class="ki other-col">{{tier.first}}</div>
+                        <div data-item-id="0" class="mk other-col">{{tier.mk}}</div>
+                        <div data-item-id="0" data-action="maint" 
+                            class="maint clickable {{#if (is "eq" ../../primary.maint "manteined")}}active{{else}}not-active{{/if}} other-col">{{tier.mant}}</div>
+                        <div data-item-id="0" data-action="maint" 
+                            class="Sme clickable {{#if (is "eq" ../../primary.maint "susteinedMinor")}}active{{else}}not-active{{/if}} other-col">{{tier.SM.SMe}}</div>
+                        <div data-item-id="0" data-action="maint" 
+                            class="Sma clickable {{#if (is "eq" ../../primary.maint "susteinedGreater")}}active{{else}}not-active{{/if}} other-col">{{tier.SM.SMa}}</div>
+                        <div data-item-id="0" class="lv other-col">{{tier.level}}</div>
+                    {{/with}}
+                {{/with}}
+            </div>
+            {{#each data as |d|}} 
+                <div class="flexrow input">
+                    <select data-item-id="second_{{@index}}" class="effect-list effects">
+                        {{#each ../effects as |effect|}}
+                            <option value="{{effect.id}}" {{#if (is "eq" d.effect effect.id)}}selected{{/if}}>{{localize effect.name}}</option>
+                        {{/each}}
+                    </select>
+                    <select data-item-id="second_{{@index}}" class="tiers tier-list">
+                        {{#if d.effect}}
+                            {{#with (lookup ../effects d.effect) as |effect|}}
+                                {{#each effect.tiers as |tier|}}
+                                    <option value="{{@index}}" {{#if (is "eq" @index d.tier)}}selected{{/if}}
+                                        >{{d.effect.valueStart}}{{tier.value}}</option>
+                                {{/each}}
+                            {{/with}}
+                        {{/if}}
+                    </select>
+                    {{#with (lookup ../effects d.effect) as |effect|}}
+                        {{#with (lookup effect.tiers d.tier) as |tier|}}
+                            <div data-item-id="second_{{@index}}" class="ki other-col">{{tier.first}}</div>
+                            <div data-item-id="second_{{@index}}" class="mk other-col">{{tier.mk}}</div>
+                            <div data-item-id="second_{{@index}}" data-action="maint"
+                            class="maint clickable {{#if (is "eq" d.maint "manteined")}}active{{else}}not-active{{/if}} other-col">{{tier.mant}}</div>
+                            <div data-item-id="second_{{@index}}" data-action="maint"
+                            class="Sme clickable {{#if (is "eq" d.maint "susteinedMinor")}}active{{else}}not-active{{/if}} other-col">{{tier.SM.SMe}}</div>
+                            <div data-item-id="second_{{@index}}" data-action="maint"
+                            class="Sma clickable {{#if (is "eq" d.maint "susteinedGreater")}}active{{else}}not-active{{/if}} other-col">{{tier.SM.SMa}}</div>
+                            <div data-item-id="second_{{@index}}" class="lv other-col">{{tier.level}}</div>
+                        {{/with}}
+                    {{/with}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

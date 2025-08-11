@@ -1,4 +1,4 @@
-import { ArmorLocation } from "../../../../../types/combat/ArmorItemConfig.js";
+import { ArmorLocation } from "../../../../../animabfConnector.js";
 const calculateTA = (tas) => {
   if (tas.length === 0) return 0;
   const orderedTas = new Int8Array([...tas]).sort().reverse();

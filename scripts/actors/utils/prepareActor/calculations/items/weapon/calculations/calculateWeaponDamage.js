@@ -1,4 +1,4 @@
-import { WeaponShotType, WeaponSizeProportion } from "../../../../../../../types/combat/WeaponItemConfig.js";
+import { WeaponShotType, WeaponSizeProportion } from "../../../../../../../animabfConnector.js";
 import { calculateWeaponStrengthModifier } from "../util/calculateWeaponStrengthModifier.js";
 const addSizeModifier = (weapon, damage) => {
   if (weapon.system.sizeProportion.value === WeaponSizeProportion.ENORMOUS) {
@@ -13,7 +13,7 @@ const addSizeModifier = (weapon, damage) => {
 const calculateWeaponDamage = (weapon, data) => {
   const getDamage = () => {
     const weaponStrengthModifier = calculateWeaponStrengthModifier(weapon, data);
-    const extraDamage = data.general.modifiers.extraDamage.value + weapon.system.damage.mod.value;
+    const extraDamage = data.general.modifiers.extraDamage.final;
     if (weapon.system.isRanged.value && weapon.system.shotType.value === WeaponShotType.SHOT) {
       const { ammo } = weapon.system;
       if (ammo) {
@@ -24,7 +24,7 @@ const calculateWeaponDamage = (weapon, data) => {
       }
       return 0;
     }
-    return addSizeModifier(weapon, weapon.system.damage.base.value) + weaponStrengthModifier + extraDamage + weapon.system.quality.value * 2;
+    return (addSizeModifier(weapon, weapon.system.damage.base.value) + weaponStrengthModifier + extraDamage + weapon.system.quality.value * 2) + (weapon.system.damage.mod?.value ?? 0);
   };
   return Math.max(getDamage(), 0);
 };

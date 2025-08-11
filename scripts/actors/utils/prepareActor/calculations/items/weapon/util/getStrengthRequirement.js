@@ -1,4 +1,4 @@
-import { WeaponEquippedHandType, WeaponManageabilityType } from "../../../../../../../types/combat/WeaponItemConfig.js";
+import { WeaponEquippedHandType, WeaponManageabilityType } from "../../../../../../../animabfConnector.js";
 const getStrengthRequirement = (weapon) => {
   switch (weapon.system.manageabilityType.value) {
     case WeaponManageabilityType.ONE_HAND:

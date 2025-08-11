@@ -1,0 +1,22 @@
+<div class="tab {{this.active}} common-group" data-group="primary" data-tab="effect">
+    <div  class="group-header">
+        <h3 class='group-header-title'>Effects</h3>
+        <img
+            class='add-button'
+            data-on-click="add-active-effect"
+            src='/systems/animabf/assets/icons/game-icons.net/ffffff/sbed/add.svg'
+            />
+        <p>                                                                                       </p>
+    </div>
+    <div id="effects-context-menu-container" class="common-group common-titled-input group-body">
+        {{#each effects as |effect|}}
+        <div class="flexrow effect-row" data-item-id="{{effect.id}}">
+            <div class="flex-start">{{effect.name}}</div>
+            <div class="flex-end">
+                <img class="settings-icon" data-on-click="effect={{effect.id}}"
+                src="/systems/animabf/assets/icons/game-icons.net/ffffff/lorc/cog.svg"/>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

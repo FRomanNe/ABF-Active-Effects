@@ -10,6 +10,7 @@
   "esmodules":[
     "module.mjs"
   ],
+"styles": ["style.css"],
 "manifest": "https://raw.githubusercontent.com/FRomanNe/ABF-Active-Effects/main/module.json",
   "relationships": {   
 	"systems": [{
@@ -20,6 +21,12 @@
       "verified": "1.19.5"
     }
   }]},
+"languages": [
+  {
+    "lang": "en",
+    "path": "lang/en.json"
+  }
+],
   "version": "0.1",
   "minimumCoreVersion": "0.8.8"
 }

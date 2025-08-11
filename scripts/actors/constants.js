@@ -87,7 +87,9 @@ const INITIAL_ACTIVE_ACTOR_DATA = {
         }
       },
       extraDamage: {
-        value: 0
+        value: 0,
+        mod: 0,
+        final: 0
       }
     },
     destinyPoints: {
@@ -1194,7 +1196,8 @@ const INITIAL_ACTIVE_ACTOR_DATA = {
         value: 0
       },
       mod:{
-        value: 0
+        value: 0,
+        mult: 1
       },
       final: {
         value: 0
