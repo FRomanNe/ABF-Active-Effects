@@ -12,6 +12,7 @@
   ],
 "styles": ["style.css"],
 "manifest": "https://raw.githubusercontent.com/FRomanNe/ABF-Active-Effects/main/module.json",
+"download": "https://github.com/FRomanNe/ABF-Active-Effects/releases/download/v0.1/module.zip",
   "relationships": {   
 	"systems": [{
     "id": "animabf",
