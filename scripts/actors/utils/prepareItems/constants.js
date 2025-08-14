@@ -8,7 +8,7 @@ import { DisadvantageItemConfig } from "../../../../../../systems/animabf/module
 import { SpellItemConfig } from "../../../../../../systems/animabf/module/types/mystic/SpellItemConfig.js";
 import { ElanItemConfig } from "../../../../../../systems/animabf/module/types/general/ElanItemConfig.js";
 import { InnatePsychicPowerItemConfig } from "../../../../../../systems/animabf/module/types/psychic/InnatePsychicPowerItemConfig.js";
-//import { KiSkillItemConfig } from "../../../../../../systems/animabf/module/types/domine/KiSkillItemConfig.js";
+import { KiSkillItemConfig } from "../../../../../../systems/animabf/module/types/domine/KiSkillItemConfig.js";
 import { LanguageItemConfig } from "../../../../../../systems/animabf/module/types/general/LanguageItemConfig.js";
 import { LevelItemConfig } from "../../../../../../systems/animabf/module/types/general/LevelItemConfig.js";
 import { MartialArtItemConfig } from "../../../../../../systems/animabf/module/types/domine/MartialArtItemConfig.js";
@@ -41,7 +41,7 @@ import {AmmoItemConfig} from "../../../Types/AmmoItemConfig.js";
 import {TechniqueItemConfig} from "../../../Types/TechniqueItemConfig.js";
 import {ActiveEffectItemConfig} from "../../../Types/ActiveEffectItemConfig.js";
 import {AdvantageItemConfig} from "../../../Types/AdvantageItemConfig.js";
-import {KiSkillItemConfig} from "../../../Types/KiSkillConfig.js";
+//import {KiSkillItemConfig} from "../../../Types/KiSkillConfig.js";
 
 const INTERNAL_ITEM_CONFIGURATIONS = {
   [ArsMagnusItemConfig.type]: ArsMagnusItemConfig,

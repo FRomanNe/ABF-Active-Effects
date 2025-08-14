@@ -1,7 +1,7 @@
 <div class="common-group technique-builder">
     <div class='group-header'>
         <div class='technique-header'>
-            <input name="name" type="text" class="input" 
+            <input name="name" type="text" class="input input-name" 
             value="{{name}}"/>
         </div>
     </div>
@@ -31,7 +31,7 @@
                     {{#with (lookup effects primary.effect) as |effect|}}
                         {{#each effect.tiers as |tier|}}
                             <option value={{@index}} {{#if (is "eq" @index ../../primary.tier)}}selected{{/if}}
-                            >{{effect.valueStart}}{{tier.value}}</option>
+                            >{{effect.valueStart}}{{#if tier.text}}{{tier.text}}{{else}}{{tier.value}}{{/if}}</option>
                         {{/each}}
                     {{/with}}
                 </select>
@@ -61,7 +61,7 @@
                             {{#with (lookup ../effects d.effect) as |effect|}}
                                 {{#each effect.tiers as |tier|}}
                                     <option value="{{@index}}" {{#if (is "eq" @index d.tier)}}selected{{/if}}
-                                        >{{d.effect.valueStart}}{{tier.value}}</option>
+                                        >{{effect.valueStart}}{{tier.value}}</option>
                                 {{/each}}
                             {{/with}}
                         {{/if}}

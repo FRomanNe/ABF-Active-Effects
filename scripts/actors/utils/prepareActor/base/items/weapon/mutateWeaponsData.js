@@ -38,6 +38,11 @@ const mutateWeaponsData = (data) => {
       base: weapon.system.presence.base,
       final: weapon.system.presence.final
     };
+    weapon.system.critic = {
+      primary: weapon.system.critic.primary,
+      secondary: weapon.system.critic.secondary,
+      other: []
+    };
     if (weapon.system.isRanged.value) {
       weapon.system.range = {
         base: weapon.system.range.base,

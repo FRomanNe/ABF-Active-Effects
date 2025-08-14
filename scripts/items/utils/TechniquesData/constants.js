@@ -34,11 +34,11 @@ const TargetTypes={
   //ARMOR: ABFItems.ARMOR
 }
 
-const MANTENANCE={
+const MAINTENANCE={
   NO: "no",
   MAINT: "manteined",
   MINOR: "susteinedMinor",
   GREATER: "susteinedGreater"
 }
 
-export {Frequency,Type,CHAR,Elements,MANTENANCE,TargetTypes}
+export {Frequency,Type,CHAR,Elements,MAINTENANCE,TargetTypes}

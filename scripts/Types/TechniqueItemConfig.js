@@ -1,6 +1,6 @@
 import { ABFItems,ABFItemConfigFactory } from "../animabfConnector.js";
 import {TechniqueBuilderDialog} from "../dialogs/TechniqueBuilderDialog.js";
-import { MANTENANCE, TargetTypes } from "../items/utils/TechniquesData/constants.js";
+import { MAINTENANCE, TargetTypes,Frequency } from "../items/utils/TechniquesData/constants.js";
 import { ALL_TECHNIQUE_EFFECTS } from "../items/utils/TechniquesData/TechniqueEffectData.js";
 
 
@@ -23,29 +23,83 @@ const INITIAL_TECHNIQUE_DATA = {
 
 
 function createEffects(data){
-  let effectData = [];
-  let effects = [];
-  for(const ef of data ){
+  let effects = [{
+    name: data.name,
+    disabled: true,
+    transfer:true,
+    duration: {rounds:0,turns:0},
+    img: "icons/svg/ice-aura.svg",
+    system: {isHeader:true}
+  }];
+  
+  let maxDuration = 0;
+  let maxFrequency = Frequency.ACTION;
+
+  for(const ef of data.effects ){
     const fullEffect = ALL_TECHNIQUE_EFFECTS[ef.effect]
     const tier = fullEffect.tiers[ef.tier];
-
     let transfer = fullEffect.target == TargetTypes.ACTOR;
+
+    let rounds = null;
+    let turns = null;
+
+    let duration = 0;
+    switch (ef.maint){
+      case MAINTENANCE.NO:
+        duration = 1;
+        break;
+      case MAINTENANCE.MAINT:
+        duration = 99;
+        break;
+      case MAINTENANCE.MINOR:
+        duration= 5;
+        break;
+      case MAINTENANCE.GREATER:
+        duration= 20;
+        break;
+    }
     
+    if(duration> maxDuration){
+      maxDuration = duration;
+      maxFrequency = fullEffect.frequency;
+    }
+
+    if(fullEffect.frequency == Frequency.ACTION){
+      turns = duration;
+    }
+    else if (fullEffect.frequency == Frequency.TURN){
+      rounds = duration;
+    }
+
     let effect = {
       name: game.i18n.localize(fullEffect.name),
       transfer: transfer,
       disabled: true,
-      system: {data: fullEffect,tier:tier},
-      changes: 
+      duration: {
+        rounds: rounds,
+        turns: turns
+      },
+      system: {data: fullEffect,tier:tier,baseDuration:{rounds:rounds,turns:turns}},
+    };
+    if(fullEffect.fieldPath)
+      effect.changes =
       [{
         key: fullEffect.fieldPath,
         mode: fullEffect.mode,
         value: tier.value
-      }]
-    };
+      }];
     effects.push(effect);
   }
-  return {data: effectData,effects:effects};
+
+  if(maxFrequency == Frequency.ACTION){
+    effects[0].duration.turns = maxDuration;
+  }
+  else if (maxFrequency == Frequency.TURN){
+    effects[0].duration.rounds = maxDuration;
+  }
+  effects[0].system.baseDuration ={turns:effects[0].duration.turns,rounds:effects[0].duration.rounds};
+
+  return effects;
 }
 
 
@@ -71,10 +125,38 @@ const TechniqueItemConfig = ABFItemConfigFactory({
           const { itemId } = target[0].dataset;
           if (itemId) {
             const item = actor.items.get(itemId);
-            actor.activateTechnique(item);
+            TechniqueItemConfig.activateTechnique(item,actor);
           } else {
             Logger.warn("Item ID was not found for target:", target);
           }
+        },
+        condition: (target) =>{
+          const { itemId } = target[0].dataset;
+          const item = actor.items.get(itemId);
+          if(item.system.active)
+            return false;
+          else
+            return true;
+        }
+      },{
+        name: "Deactivate",
+        icon: '<i class="fas fa-close fa-fw"></i>',
+        callback: (target) => {
+          const { itemId } = target[0].dataset;
+          if (itemId) {
+            const item = actor.items.get(itemId);
+            TechniqueItemConfig.activateTechnique(item,actor);
+          } else {
+            Logger.warn("Item ID was not found for target:", target);
+          }
+        },
+        condition: (target) =>{
+          const { itemId } = target[0].dataset;
+          const item = actor.items.get(itemId);
+          if(item.system.active)
+            if (item.system.active == true)
+              return true;
+          return false;
         }
       }]
     }
@@ -82,18 +164,16 @@ const TechniqueItemConfig = ABFItemConfigFactory({
   onCreate: async (actor) => {
     const form = await TechniqueBuilderDialog();
     const name = form.name;
-    const {data, effects} = createEffects(form.effects);
+    const effects = createEffects(form);
     try{
       let item = await actor.createItem({
         name,
         type: ABFItems.TECHNIQUE,
-        system: {...INITIAL_TECHNIQUE_DATA, effectData:data}
+        system: {...INITIAL_TECHNIQUE_DATA, effectData:[]}
       });
-      for (const effect in effects){
-        let ef = await item.createEmbeddedDocuments("ActiveEffect", [effects[effect]]);
-        item.system.effectData[effect].effect = ef[0];
-        ef[0].system.data = item.system.effectData[effect];
-      } 
+
+      let efs = await item.createEmbeddedDocuments("ActiveEffect", effects);
+      await item.update({"system.effectData":efs});
     }
     catch (err)
     {
@@ -109,10 +189,48 @@ const TechniqueItemConfig = ABFItemConfigFactory({
         async: true
       }
     );
+  },
+  async activateTechnique(technique,actor) {
+    let changes = [];
+    if(technique.system.active){
+      await technique.update({"system.active":false});
+      for(const effect of technique.system.effectData){
+        changes.push({_id:effect._id, disabled:true});
+        if(effect.system.data?.flag){
+          let flag = effect.system.data.flag;
+          await actor.setFlag("animabf",flag.key,flag.value.off);
+        }
+      }
+    }
+    else
+    {
+      await technique.update({"system.active":true});
+
+      for(const effect of technique.system.effectData){
+        let change = {};
+        change._id = effect._id;
+        change.disabled = false;
+
+        change.duration ={ 
+          turns: effect.system.baseDuration.turns,
+          rounds: effect.system.baseDuration.rounds
+        }
+
+        changes.push(change);
+
+        if(effect.system.data?.flag){
+          let flag = effect.system.data.flag;
+          let value = flag.value.on == "value"? effect.system.data.tiers[effect.system.tier].value : flag.value.on;
+          await actor.setFlag("animabf",flag.key,value);
+        }
+            
+      }
+    }
+    await technique.updateEmbeddedDocuments("ActiveEffect",changes);
   }
 });
 export {
   INITIAL_TECHNIQUE_DATA,
-  MANTENANCE,TargetTypes,
+  MAINTENANCE as MANTENANCE,TargetTypes,
   TechniqueItemConfig
 };

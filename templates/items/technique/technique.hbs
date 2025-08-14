@@ -21,9 +21,9 @@
         {{#> "systems/animabf/templates/common/ui/group-body.hbs"
           class="technique"
         }}
-          <div class="tallbox">
+          <div class="tallbox technique-description">
           {{#if item.actor}}
-            {{editor item.system.enrichedDescription target=(concat "actor.system.dynamic.techniques." item._id ".system.description.value") button=true owner=true editable=true}}
+            {{editor item.system.description.value target="system.description.value" button=true owner=true editable=true}}
           {{else}}
             {{editor system.description.value target=("system.description.value") button=true owner=true editable=true}}
           {{/if}}

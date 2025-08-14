@@ -4,7 +4,7 @@
     position: relative;
 }
 .tallbox {
-    min-height: 10rem;
+    height: 10rem;
 }
 .advantage-header{
     padding-bottom: 2px;
@@ -12,6 +12,12 @@
     width: 95%;
 }
 .advantage-header .name .input-container{
+    width: 100%;
+}
+.technique-header{
+    width: 50%;
+}
+.technique-header .name .input-container{
     width: 100%;
 }
 .contents{
@@ -25,6 +31,17 @@
     padding-left: 1rem;
     background-color: #6e2917;
     border-radius: 1rem;
+}
+.technique-description .editor{
+    border-radius: 10px;
+    background: #e7e5da;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    font-weight: inherit;
+    height: 10rem;
+    width: 100%;
+    margin-top: 0;
+    border-radius: 0.5rem;
 }
 .technique-builder .input{
     border-radius: 10px;

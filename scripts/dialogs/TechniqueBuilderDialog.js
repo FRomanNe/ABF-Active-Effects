@@ -1,5 +1,5 @@
 import {ALL_TECHNIQUE_EFFECTS,EmptyTechnique } from "../items/utils/TechniquesData/TechniqueEffectData.js";
-import { MANTENANCE} from "../items/utils/TechniquesData/constants.js";
+import { MAINTENANCE} from "../items/utils/TechniquesData/constants.js";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -7,7 +7,7 @@ class TechniqueBuilder extends HandlebarsApplicationMixin(ApplicationV2){
     constructor(options){
         super(options)
         this.name = game.i18n.format("DOCUMENT.New", {type: game.i18n.localize("anima.ui.domine.techniques.technique.header.name.title")});
-        this.primary = {effect:"none",tier:0, maint:MANTENANCE.NO};
+        this.primary = {effect:"none",tier:0, maint:MAINTENANCE.NO};
         this.secondaries =[];
     }
     static DEFAULT_OPTIONS = {
@@ -50,24 +50,24 @@ class TechniqueBuilder extends HandlebarsApplicationMixin(ApplicationV2){
             
             if(id == 0){
                 if(target.classList.contains("maint"))
-                    this.primary.maint = MANTENANCE.MAINT;
+                    this.primary.maint = MAINTENANCE.MAINT;
                 else if(target.classList.contains("Sme"))
-                    this.primary.maint = MANTENANCE.SMe;
+                    this.primary.maint = MAINTENANCE.SMe;
                 else if(target.classList.contains("Sme"))
-                    this.primary.maint = MANTENANCE.SMa;
+                    this.primary.maint = MAINTENANCE.SMa;
             }else{
                 id= id.replace("second_","");
                 if(target.classList.contains("maint"))
-                    this.secondaries[id].maint = MANTENANCE.MAINT;
+                    this.secondaries[id].maint = MAINTENANCE.MAINT;
                 else if(target.classList.contains("Sme"))
-                    this.secondaries[id].maint = MANTENANCE.SMe;
+                    this.secondaries[id].maint = MAINTENANCE.SMe;
                 else if(target.classList.contains("Sme"))
-                    this.secondaries[id].maint = MANTENANCE.SMa;
+                    this.secondaries[id].maint = MAINTENANCE.SMa;
             }
-        }else this.target.maint = MANTENANCE.NO;
+        }else this.target.maint = MAINTENANCE.NO;
     }
     static Add(event,target){
-        this.secondaries.push({effect:"none",tier:0, maint:MANTENANCE.NO});
+        this.secondaries.push({effect:"none",tier:0, maint:MAINTENANCE.NO});
         this.render();
     }
 
@@ -98,6 +98,10 @@ class TechniqueBuilder extends HandlebarsApplicationMixin(ApplicationV2){
                 this.render();
             });
         }
+        let nameInput = this.element.querySelectorAll(".input-name");
+        nameInput[0].addEventListener("change",(e)=>{
+            this.name = e.currentTarget.value;
+        });
     }
 
     static async myFormHandler(event, form, formData) {

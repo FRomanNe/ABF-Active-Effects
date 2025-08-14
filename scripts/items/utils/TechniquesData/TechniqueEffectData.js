@@ -1,4 +1,5 @@
 import { Frequency,Type,CHAR,Elements,TargetTypes } from "./constants.js";
+import { WeaponCritic } from "../../../animabfConnector.js";
 
 // ADD: 2
 // CUSTOM: 0
@@ -70,8 +71,68 @@ const AttackFull =
         [CHAR.WIL]:3
     }
 }
-//Ataque predeterminado
-//Habilidad de Contraataque
+const AttackSub =
+{
+    id: "AttackSub",
+    name: "ABFae.Domine.AttackSub",
+    fieldPath: "system.combat.attack.final.value",
+    target: TargetTypes.ACTOR,
+    flag: {key: "withoutRoll",value:{on:true,off:false}},
+    mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
+    tiers: [
+        {value:80,first:2,second:4,mk:5,mant:1,SM:{SMe:2,SMa:4},level:1},
+        {value:120,first:4,second:6,mk:5,mant:2,SM:{SMe:4,SMa:7},level:1},
+        {value:140,first:6,second:9,mk:5,mant:3,SM:{SMe:6,SMa:11},level:1},
+        {value:180,first:8,second:11,mk:10,mant:4,SM:{SMe:8,SMa:14},level:1},
+        {value:240,first:12,second:15,mk:15,mant:6,SM:{SMe:12,SMa:21},level:1},
+        {value:280,first:16,second:20,mk:25,mant:8,SM:{SMe:16,SMa:28},level:2},
+        {value:320,first:20,second:24,mk:35,mant:10,SM:{SMe:20,SMa:35},level:2},
+        {value:440,first:26,second:32,mk:45,mant:12,SM:{SMe:24,SMa:""},level:3},
+    ],
+    override: true,
+    frequency:  Frequency.ACTION,
+    type: Type.ATTACK,
+    elements:  [Elements.LIGHT,Elements.DARK,Elements.EARTH],
+    primary: CHAR.POW,
+    characteristics:{
+        [CHAR.AGI]:2,
+        [CHAR.STR]:2,
+        [CHAR.STR]:3,
+        [CHAR.WIL]:1
+    }
+}
+
+const Counterattack =
+{
+    id: "Counterattack",
+    name: "ABFae.Domine.Counterattack",
+    target: TargetTypes.ACTOR,
+    flags: {key:"counterattackBonus",value:{on:"value",off:0}},
+    tiers: [
+        {value:10,first:1,second:2,mk:5,mant:1,SM:{SMe:2,SMa:4},level:1},
+        {value:25,first:2,second:4,mk:5,mant:2,SM:{SMe:4,SMa:7},level:1},
+        {value:40,first:3,second:5,mk:10,mant:3,SM:{SMe:6,SMa:11},level:1},
+        {value:50,first:4,second:6,mk:10,mant:4,SM:{SMe:8,SMa:14},level:1},
+        {value:75,first:6,second:9,mk:15,mant:6,SM:{SMe:12,SMa:21},level:1},
+        {value:90,first:9,second:12,mk:20,mant:8,SM:{SMe:16,SMa:28},level:1},
+        {value:100,first:12,second:15,mk:25,mant:10,SM:{SMe:20,SMa:35},level:1},
+        {value:125,first:14,second:18,mk:30,mant:12,SM:{SMe:24,SMa:42},level:2},
+        {value:150,first:18,second:22,mk:35,mant:14,SM:{SMe:28,SMa:49},level:2},
+        {value:175,first:22,second:26,mk:40,mant:16,SM:{SMe:32,SMa:""},level:3},
+        {value:200,first:26,second:32,mk:45,mant:18,SM:{SMe:36,SMa:""},level:3},
+    ],
+    valueStart: "+",
+    frequency:  Frequency.ACTION,
+    type: Type.ATTACK,
+    elements:  [Elements.WATER,Elements.AIR,Elements.EARTH],
+    primary: CHAR.DEX,
+    characteristics:{
+        [CHAR.AGI]:2,
+        [CHAR.STR]:2,
+        [CHAR.POW]:2,
+        [CHAR.WIL]:3
+    }
+}
 //Apuntar
 //Apuntar real
 //Ataque Indirecto
@@ -437,27 +498,138 @@ const Movement =
     }
 }
 
+const ElementalAttack =
+{
+    id: "ElementalAttack",
+    name: "ABFae.Domine.ElementalAttack",
+    fieldPath: "system.critic.other",
+    target: TargetTypes.WEAPON,
+    mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+    tiers: [
+        {text:"Fire", value:WeaponCritic.HEAT,first:2,second:4,mk:5,mant:1,SM:{SMe:2,SMa:4},level:1},
+        {text:"Water", value:WeaponCritic.COLD,first:2,second:4,mk:5,mant:1,SM:{SMe:2,SMa:4},level:1},
+        {text:"Air", value:WeaponCritic.ELECTRICITY,first:2,second:4,mk:5,mant:2,SM:{SMe:2,SMa:4},level:1},
+        {text:"Earth", value:[WeaponCritic.IMPACT,WeaponCritic.THRUST,WeaponCritic.CUT],first:2,second:4,mk:5,mant:2,SM:{SMe:2,SMa:4},level:1},
+    ],
+    override: false,
+    frequency:  Frequency.TURN,
+    type: Type.ATTACK,
+    elements:  [],
+    primary: CHAR.POW,
+    characteristics:{
+        [CHAR.CON]:2,
+        [CHAR.DEX]:3,
+        [CHAR.STR]:3,
+        [CHAR.WIL]:1
+    }
+}
+const SupernaturalAttack =
+{
+    id: "SupernaturalAttack",
+    name: "ABFae.Domine.SupernaturalAttack",
+    fieldPath: "system.critic.other",
+    target: TargetTypes.WEAPON,
+    mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+    tiers: [
+        {text:"Energy", value:WeaponCritic.ENERGY,first:5,second:8,mk:10,mant:1,SM:{SMe:2,SMa:4},level:1},
+    ],
+    override: false,
+    frequency:  Frequency.ACTION,
+    type: Type.ATTACK,
+    elements:  [Elements.LIGHT,Elements.DARK],
+    primary: CHAR.POW,
+    characteristics:{
+        [CHAR.CON]:2,
+        [CHAR.DEX]:3,
+        [CHAR.STR]:3,
+        [CHAR.WIL]:1
+    }
+}
+const Critical =
+{
+    id: "Critical",
+    name: "ABFae.Domine.Critical",
+    target: TargetTypes.ACTOR,
+    flags: {key:"criticalBonus",value:{on:"value",off:0}},
+    tiers: [
+        {value:10,first:2,second:4,mk:5,mant:1,SM:{SMe:2,SMa:4},level:1},
+        {value:25,first:3,second:5,mk:5,mant:2,SM:{SMe:4,SMa:7},level:1},
+        {value:40,first:4,second:6,mk:10,mant:3,SM:{SMe:6,SMa:11},level:1},
+        {value:50,first:5,second:8,mk:15,mant:4,SM:{SMe:8,SMa:14},level:1},
+        {value:75,first:8,second:11,mk:20,mant:6,SM:{SMe:12,SMa:21},level:1},
+        {value:90,first:12,second:15,mk:25,mant:8,SM:{SMe:16,SMa:28},level:1},
+        {value:100,first:14,second:18,mk:30,mant:10,SM:{SMe:20,SMa:35},level:1},
+        {value:125,first:18,second:22,mk:35,mant:12,SM:{SMe:24,SMa:42},level:2},
+        {value:150,first:22,second:26,mk:40,mant:14,SM:{SMe:28,SMa:49},level:2},
+        {value:175,first:26,second:32,mk:45,mant:16,SM:{SMe:32,SMa:""},level:3},
+        {value:200,first:30,second:36,mk:50,mant:18,SM:{SMe:36,SMa:""},level:3},
+    ],
+    valueStart: "+",
+    frequency:  Frequency.ACTION,
+    type: Type.ATTACK,
+    elements:  [Elements.FIRE,Elements.EARTH],
+    primary: CHAR.POW,
+    characteristics:{
+        [CHAR.CON]:2,
+        [CHAR.DEX]:2,
+        [CHAR.STR]:1,
+        [CHAR.WIL]:1
+    }
+}
+const CriticalFull =
+{
+    id: "CriticalFull",
+    name: "ABFae.Domine.CriticalFull",
+    target: TargetTypes.ACTOR,
+    flags: {key:"criticalBonus",value:{on:"value",off:0}},
+    tiers: [
+        {value:10,first:3,second:5,mk:10,mant:2,SM:{SMe:4,SMa:7},level:1},
+        {value:25,first:5,second:8,mk:20,mant:4,SM:{SMe:8,SMa:14},level:1},
+        {value:40,first:7,second:9,mk:25,mant:6,SM:{SMe:12,SMa:21},level:1},
+        {value:50,first:9,second:12,mk:35,mant:8,SM:{SMe:16,SMa:28},level:2},
+        {value:75,first:12,second:15,mk:50,mant:10,SM:{SMe:20,SMa:35},level:2},
+        {value:90,first:16,second:20,mk:60,mant:12,SM:{SMe:24,SMa:""},level:3},
+        {value:100,first:18,second:22,mk:65,mant:14,SM:{SMe:28,SMa:""},level:3},
+    ],
+    valueStart: "+",
+    frequency:  Frequency.ACTION,
+    type: Type.ATTACK,
+    elements:  [Elements.FIRE,,Elements.EARTH],
+    primary: CHAR.POW,
+    characteristics:{
+        [CHAR.CON]:2,
+        [CHAR.DEX]:2,
+        [CHAR.STR]:1,
+        [CHAR.WIL]:1
+    }
+}
+
 const ALL_TECHNIQUE_EFFECTS={
     [Attack.id]: Attack,
-    //[AttackFull.id]: AttackFull,
+    [AttackFull.id]: AttackFull,
+    [AttackSub.id]: AttackSub,
+    [Counterattack.id]: Counterattack,
     [Block.id]: Block,
-    //[BlockFull.id]: BlockFull,
+    [BlockFull.id]: BlockFull,
     [Dodge.id]: Dodge,
-    //[DodgeFull.id]: DodgeFull,
+    [DodgeFull.id]: DodgeFull,
     [Damage.id]: Damage,
-    //[DamageFull.id]: DamageFull,
+    [DamageFull.id]: DamageFull,
     [DamageSub.id]: DamageSub,
     [DamageMult.id]: DamageMult,
     [Initiative.id]: Initiative,
     [Breakage.id]: Breakage,
     [Fortitude.id]: Fortitude,
-    [Movement.id]: Movement
+    [Movement.id]: Movement,
+    [ElementalAttack.id]: ElementalAttack,
+    [SupernaturalAttack.id]:SupernaturalAttack,
+    [CriticalFull.id]: CriticalFull
 }
 const EmptyTechnique ={
     id:"none",
     name: "",
     tiers:[
-        {value:"",first:"",second:"",mk:"",mant:"",SM:{SMe:"",SMa:""},level:""},
+        {value:"",first:"-",second:"-",mk:"-",mant:"-",SM:{SMe:"-",SMa:"-"},level:"-"},
     ],
     override:true
 }

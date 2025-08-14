@@ -19,6 +19,7 @@
         "Domine":{
             "Attack": "Attack Ability (Single)",
             "AttackFull": "Attack Ability (Multiple)",
+	        "AttackSub": "Predetermined Attack",
             "PredeterminedAttack": "Predetermined Attack",
             "Counterattack": "Counterattack Ability",
             "Aim": "Combat Maneuvers and Aiming (Single)",
@@ -38,7 +39,12 @@
             "DamageSubFull": "Predetermined Damage (Multiple)",
             "Initiative": "Initiative Augmentation",
             "Breakage": "Breakage Augmentation",
-            "Fortitude": "Fortitude Augmentation"
+            "Fortitude": "Fortitude Augmentation",
+	        "Movement": "Movement Increase",
+            "ElementalAttack": "Elemental Attack",
+            "SupernaturalAttack":"Supernatural Attack",
+            "Critical": "Critical Enhancement (Single)",
+            "CriticalFull": "Critical Enhancement (Multiple)"
         }
     }
 }

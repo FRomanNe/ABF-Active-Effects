@@ -8,6 +8,7 @@ import { calculateWeaponBreaking } from "./calculations/calculateWeaponBreaking.
 import { calculateWeaponPresence } from "./calculations/calculateWeaponPresence.js";
 import { calculateWeaponRange } from "./calculations/calculateWeaponRange.js";
 import { calculateWeaponInitiative } from "./calculations/calculateWeaponInitiative.js";
+import {eliminateRedundantCriticals} from "./util/eliminateRedundantCriticals.js";
 const mutateWeaponsData = (data) => {
   const combat = data.combat;
   combat.weapons = combat.weapons.map((weapon) => {
@@ -47,6 +48,11 @@ const mutateWeaponsData = (data) => {
       base: weapon.system.presence.base,
       final: { value: calculateWeaponPresence(weapon) }
     };
+    weapon.system.critic = {
+      primary: weapon.system.critic.primary,
+      secondary: weapon.system.critic.secondary,
+      other: eliminateRedundantCriticals(weapon)
+    }
     if (weapon.system.isRanged.value) {
       weapon.system.range = {
         base: weapon.system.range.base,

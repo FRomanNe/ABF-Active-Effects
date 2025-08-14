@@ -117,17 +117,7 @@ class ActiveABFActor extends ABFActor
   }
 
   activateTechnique(technique) {
-    technique.system.active = true;
-    for(const effect in technique.effectsData){
-      effect.effect.active = true;
-      if(effect.targetType == "actor"){
-        effect.effect.transfer = true;
-      }else{
-        items = this.getItemsOf(effect.targetType).filter(i=>i.equipped==true);
-        //effect.effect.target = items;
-      }
 
-    }
   }
 
 

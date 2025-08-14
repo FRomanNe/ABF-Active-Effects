@@ -3,6 +3,8 @@ import {openSimpleInputDialog,ABFItemConfigFactory } from "../animabfConnector.j
 const KiSkillItemConfig = ABFItemConfigFactory({
   type: ABFItems.KI_SKILL,
   isInternal: true,
+  activeItem: true,
+  hasSheet:true,
   fieldPath: ["domine", "kiSkills"],
   selectors: {
     addItemButtonSelector: "add-ki-skill",
