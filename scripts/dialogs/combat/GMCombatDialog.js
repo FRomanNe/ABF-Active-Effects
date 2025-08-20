@@ -1,5 +1,6 @@
-import { Templates ,calculateCombatResult,calculateATReductionByQuality
+import { Templates ,calculateCombatResult
   ,ABFSettingsKeys,executeMacro,ABFFoundryRoll} from "../../animabfConnector.js";
+import {calculateATReduction} from "../../combat/utils/calculateATReduction.js";
 const getInitialData = (attacker, defender, options = {}) => {
   const attackerActor = attacker.actor;
   const defenderActor = defender.actor;
@@ -204,7 +205,7 @@ class GMCombatDialog extends FormApplication {
           attackerTotal,
           defenderTotal,
           Math.max(
-            defender.result.values.at - calculateATReductionByQuality(attacker.result),
+            defender.result.values.at - calculateATReduction(attacker.result),
             0
           ),
           attacker.result.values.damage,
@@ -321,7 +322,7 @@ class GMCombatDialog extends FormApplication {
           0
         );
         newCombatResult.at = Math.max(
-          defender.result.values.at - calculateATReductionByQuality(attacker.result),
+          defender.result.values.at - calculateATReduction(attacker.result),
           0
         );
         newCombatResult.halvedAbsorption = defender.result.type === "resistance" ? defender.result.values.surprised : false;

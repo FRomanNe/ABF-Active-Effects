@@ -56,6 +56,9 @@ const INITIAL_WEAPON_DATA = {
       final: { value: 0 }
     }
   },
+  reduceAT: {
+    value:0
+  },
   quality: { value: 0 },
   oneOrTwoHanded: { value: WeaponEquippedHandType.ONE_HANDED },
   knowledgeType: { value: WeaponKnowledgeType.KNOWN },

@@ -208,7 +208,7 @@ class CombatAttackDialog extends FormApplication {
     );
     if(criticalBonus)
       if(!isNaN(criticalBonus))
-        this.modalData.attacker.criticalBonus = criticalBonus;
+        this.modalData.attacker.combat.criticalBonus = criticalBonus;
     //
 
     this.modalData.allowed = game.user?.isGM || (options.allowed ?? false);

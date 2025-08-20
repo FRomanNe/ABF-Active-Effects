@@ -32,6 +32,9 @@
     background-color: #6e2917;
     border-radius: 1rem;
 }
+.effect-row .flex{
+    align-items: center;
+}
 .technique-description .editor{
     border-radius: 10px;
     background: #e7e5da;
@@ -96,6 +99,7 @@
 }
 .effect-row .flex-center{
     display: flex;
+    color: white;
     align-content: center;
     flex-wrap: wrap;
     justify-content: center;

@@ -10,7 +10,7 @@ const mutateMysticData = (data) => {
   if (mystic.act.via.length !== 0) {
     for (const actVia of mystic.act.via) {
       actVia.system.final.value = Math.max(
-        actVia.system.base.value +( actVia.system.mod?.value ?? 0) + Math.min(0, -roundTo5Multiples(-allActionsPenalty / 2)),
+        mystic.act.main.final.value + actVia.system.base.value +( actVia.system.mod?.value ?? 0) + Math.min(0, -roundTo5Multiples(-allActionsPenalty / 2)),
         0
       );
     }

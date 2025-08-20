@@ -4,7 +4,7 @@ import { CombatSpecialSkillItemConfig } from "../../../../../../systems/animabf/
 import { CombatTableItemConfig } from "../../../../../../systems/animabf/module/types/combat/CombatTableItemConfig.js";
 import { ContactItemConfig } from "../../../../../../systems/animabf/module/types/general/ContactItemConfig.js";
 import { CreatureItemConfig } from "../../../../../../systems/animabf/module/types/domine/CreatureItemConfig.js";
-import { DisadvantageItemConfig } from "../../../../../../systems/animabf/module/types/general/DisadvantageItemConfig.js";
+//import { DisadvantageItemConfig } from "../../../../../../systems/animabf/module/types/general/DisadvantageItemConfig.js";
 import { SpellItemConfig } from "../../../../../../systems/animabf/module/types/mystic/SpellItemConfig.js";
 import { ElanItemConfig } from "../../../../../../systems/animabf/module/types/general/ElanItemConfig.js";
 import { InnatePsychicPowerItemConfig } from "../../../../../../systems/animabf/module/types/psychic/InnatePsychicPowerItemConfig.js";
@@ -41,6 +41,7 @@ import {AmmoItemConfig} from "../../../Types/AmmoItemConfig.js";
 import {TechniqueItemConfig} from "../../../Types/TechniqueItemConfig.js";
 import {ActiveEffectItemConfig} from "../../../Types/ActiveEffectItemConfig.js";
 import {AdvantageItemConfig} from "../../../Types/AdvantageItemConfig.js";
+import {DisadvantageItemConfig} from "../../../Types/DisadvantageItemConfig.js";
 //import {KiSkillItemConfig} from "../../../Types/KiSkillConfig.js";
 
 const INTERNAL_ITEM_CONFIGURATIONS = {

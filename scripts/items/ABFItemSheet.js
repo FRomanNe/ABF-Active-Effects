@@ -39,6 +39,7 @@ class ABFActiveItemSheet extends ABFItemSheet {
     let effect = {
       name:"New Active Effect",
       description:"",
+      system: {data:{override:false}},
       target: this.object,
       changes: [],
       };
@@ -46,6 +47,18 @@ class ABFActiveItemSheet extends ABFItemSheet {
     let d = new ActiveEffectConfig(effect[0])
     d.render(true);
   });
+
+  html.find(".effect-disabled").change((event)=> {
+    const id = event.currentTarget.dataset.itemId;
+    const value = event.currentTarget.checked;
+    this.object.updateEmbeddedDocuments("ActiveEffect",[{_id:id,disabled:value}]);
+  });
+  html.find(".effect-override").change((event)=> {
+    const id = event.currentTarget.dataset.itemId;
+    const value = event.currentTarget.checked;
+    this.object.updateEmbeddedDocuments("ActiveEffect",[{_id:id,"system.data.override":value}]);
+  });
+
   for (const i in this.object.effects.contents){
     html.find(`[data-on-click="effect=${this.object.effects.contents[i].id}"]`).click( async ()=>{
       let d = new ActiveEffectConfig(this.object.effects.contents[i]);

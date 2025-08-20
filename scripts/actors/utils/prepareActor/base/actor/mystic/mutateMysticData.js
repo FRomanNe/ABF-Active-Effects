@@ -1,8 +1,9 @@
+import {createSphearData} from "./createSpheareData.js";
 const mutateMysticData = (data) => {
   const { mystic } = data;
   mystic.act.main.mod = {value: 0};
   if (mystic.act.via.length !== 0) {
-    for (const actVia of mystic.act.via) {
+    for (let actVia of mystic.act.via) {
       actVia.system.mod = {value: 0};
     }
   }

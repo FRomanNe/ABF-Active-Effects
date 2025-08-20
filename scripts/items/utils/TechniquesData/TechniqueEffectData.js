@@ -75,8 +75,8 @@ const AttackSub =
 {
     id: "AttackSub",
     name: "ABFae.Domine.AttackSub",
-    fieldPath: "system.combat.attack.final.value",
-    target: TargetTypes.ACTOR,
+    fieldPath: "system.attack.final.value",
+    target: TargetTypes.WEAPON,
     flag: {key: "withoutRoll",value:{on:true,off:false}},
     mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE,
     tiers: [
@@ -469,7 +469,37 @@ const Fortitude =
         [CHAR.WIL]:1
     }
 }
-
+const DestroyTA =
+{
+    id: "DestroyTA",
+    name: "ABFae.Domine.DestroyTA",
+    fieldPath: "system.reduceAT.value",
+    target: TargetTypes.WEAPON,
+    mode: CONST.ACTIVE_EFFECT_MODES.ADD,
+    tiers: [
+        {value:1,first:1,second:2,mk:5,mant:1,SM:{SMe:2,SMa:4},level:1},
+        {value:2,first:2,second:4,mk:5,mant:1,SM:{SMe:2,SMa:4},level:1},
+        {value:3,first:3,second:5,mk:10,mant:2,SM:{SMe:4,SMa:7},level:1},
+        {value:4,first:4,second:6,mk:15,mant:2,SM:{SMe:4,SMa:7},level:1},
+        {value:5,first:5,second:8,mk:20,mant:3,SM:{SMe:6,SMa:11},level:2},
+        {value:6,first:6,second:9,mk:25,mant:3,SM:{SMe:6,SMa:11},level:2},
+        {value:7,first:8,second:11,mk:30,mant:4,SM:{SMe:8,SMa:14},level:2},
+        {value:8,first:10,second:13,mk:35,mant:5,SM:{SMe:10,SMa:""},level:3},
+        {value:99,first:12,second:15,mk:40,mant:6,SM:{SMe:12,SMa:""},level:3},
+    ],
+    override: false,
+    valueStart: "-",
+    frequency:  Frequency.ACTION,
+    type: Type.ATTACK,
+    elements:  [Elements.FIRE,Elements.DARK],
+    primary: CHAR.STR,
+    characteristics:{
+        [CHAR.CON]:2,
+        [CHAR.DEX]:2,
+        [CHAR.POW]:1,
+        [CHAR.WIL]:2
+    }
+}
 const Movement =
 {
     id: "Movement",
@@ -620,10 +650,10 @@ const ALL_TECHNIQUE_EFFECTS={
     [Initiative.id]: Initiative,
     [Breakage.id]: Breakage,
     [Fortitude.id]: Fortitude,
+    [DestroyTA.id]: DestroyTA,
     [Movement.id]: Movement,
     [ElementalAttack.id]: ElementalAttack,
     [SupernaturalAttack.id]:SupernaturalAttack,
-    [CriticalFull.id]: CriticalFull
 }
 const EmptyTechnique ={
     id:"none",

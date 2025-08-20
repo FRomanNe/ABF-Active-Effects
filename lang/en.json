@@ -2,6 +2,8 @@
     "ABFae.UI.Details": "Details",
     "ABFae":{
         "UI":{
+	    "Disabled": "Disabled",
+	    "Override": "Override",
             "Details": "Details",
             "Effect": "Effect",
             "Activate": "Activate",
@@ -20,7 +22,6 @@
             "Attack": "Attack Ability (Single)",
             "AttackFull": "Attack Ability (Multiple)",
 	        "AttackSub": "Predetermined Attack",
-            "PredeterminedAttack": "Predetermined Attack",
             "Counterattack": "Counterattack Ability",
             "Aim": "Combat Maneuvers and Aiming (Single)",
             "AimFull": "Combat Maneuvers and Aiming (Multiple)",
@@ -40,6 +41,7 @@
             "Initiative": "Initiative Augmentation",
             "Breakage": "Breakage Augmentation",
             "Fortitude": "Fortitude Augmentation",
+            "DestroyTA": "Destroy TA",
 	        "Movement": "Movement Increase",
             "ElementalAttack": "Elemental Attack",
             "SupernaturalAttack":"Supernatural Attack",

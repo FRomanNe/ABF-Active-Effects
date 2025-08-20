@@ -43,6 +43,8 @@ const mutateWeaponsData = (data) => {
       secondary: weapon.system.critic.secondary,
       other: []
     };
+    weapon.system.reduceAT = {value:0};
+    
     if (weapon.system.isRanged.value) {
       weapon.system.range = {
         base: weapon.system.range.base,

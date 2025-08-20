@@ -12,6 +12,20 @@
         {{#each effects as |effect|}}
         <div class="flexrow effect-row" data-item-id="{{effect.id}}">
             <div class="flex-start">{{effect.name}}</div>
+            <div class="flex-center">
+                <div class="flex">
+                    <div><p>{{localize "ABFae.UI.Disabled"}}</p></div>
+                    <input data-item-id="{{effect._id}}" class="effect-disabled input" type="checkbox"
+                    {{checked effect.disabled}}
+                    />
+                </div>
+                <div class="flex">
+                    <div><p>{{localize "ABFae.UI.Override"}}</p></div>
+                    <input data-item-id="{{effect._id}}" class="effect-override input" type="checkbox"
+                    {{checked effect.system.data.override}}
+                    />
+                </div>
+            </div>
             <div class="flex-end">
                 <img class="settings-icon" data-on-click="effect={{effect.id}}"
                 src="/systems/animabf/assets/icons/game-icons.net/ffffff/lorc/cog.svg"/>

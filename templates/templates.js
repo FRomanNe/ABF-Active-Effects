@@ -12,6 +12,7 @@ const Templates = {
             }
         }
     }
+    
 };
 const ALL_TEMPLATES = [
 "modules/anima-active-effects/templates/effects/effects-tab.hbs",
